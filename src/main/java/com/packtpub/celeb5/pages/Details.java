@@ -23,4 +23,9 @@ public class Details {
 		return Formats.getDateFormat();
 	}
 	
+	Object onActivate(){
+		if (celebrity == null)
+			return Index.class;
+		return null;
+	}
 }
