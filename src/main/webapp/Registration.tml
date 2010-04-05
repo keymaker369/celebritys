@@ -1,11 +1,56 @@
 <html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
-  <head>
-    <title>Celebrity Collector: Registration</title>
-  </head>
-  <body>
-    <h1>Registration</h1>
-    <p> Registration form will be created here. </p>
+	<head>
+    	<title>Celebrity Collector: Registration</title>
+	</head>
+  	<body>
+    	<h1>Registration</h1>
+      	<t:form t:id="registrationForm">
+      		<table>
+         		<tr>
+           			<td>
+           				<t:label t:for="userName">
+		       				Label for user name
+		        		</t:label>:
+		        	</td>
+           			<td>
+           				<input type="text" t:type="textfield" t:id="userName" t:value="userName"/>
+           			</td>
+         		</tr>
+         		<tr>
+           			<td><t:label t:for="password">
+		                	Label for password
+		                </t:label>:
+		            </td>
+           			<td>
+           				<input type="text" t:type="passwordfield" t:id="password" t:value="password"/>
+           			</td>
+         		</tr>
+         		<tr>
+           			<td>
+           				<t:label t:for="password2">
+		                	Label for password 2
+		                </t:label>:
+		            </td>
+           			<td>
+           				<input type="text" t:type="passwordfield" t:id="password2" t:label="Repeat password" t:value="password2"/>
+           			</td>
+          		</tr>
+          		<tr>
+            		<td>Gender:</td>
+            		<td>
+               			<t:radiogroup t:value="gender">
+               				<input type="radio" t:type="radio" t:value="literal:M"/> Male
+               				<input type="radio" t:type="radio" t:value="literal:F"/> Female
+                   		</t:radiogroup>
+            		</td>
+            	</tr>
+      		</table>
+      		<input type="submit" value="Submit"/>
+      	</t:form>
+    <br/>
     <a href="#" t:type="PageLink" t:page="Index">
-      Back to the Index Page</a>
+	       Back to the Index Page
+	</a>
   </body>
 </html>
+		                
