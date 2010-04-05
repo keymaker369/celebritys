@@ -26,17 +26,17 @@ public class ShowAll {
     private Celebrity celebrity;
     
     String onActivate() {
-        if (!userExists) return "Inedx";
+        if (!userExists) return "Index";
         return null;
     }
     
-    /*@OnEvent(component="detailsLink")
+    @OnEvent(component="detailsLink")
     Object onShowDetails(long id) {
         Celebrity celebrity = 
 				dataSource.getCelebrityById(id);
         detailsPage.setCelebrity(celebrity);
         return detailsPage;
-    }*/
+    }
     
     public List<Celebrity> getAllCelebrities() {
         return dataSource.getAllCelebrities();
