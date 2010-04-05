@@ -5,7 +5,7 @@ public class Registration {
 	private String userName;
 	private String password;
 	private String password2;
-	private String gender;
+	private String gender = "F";
 	
 	public String getUserName() {
 		return userName;
