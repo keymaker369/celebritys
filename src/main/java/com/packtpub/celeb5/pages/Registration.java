@@ -59,8 +59,8 @@ public class Registration {
 		this.user = newUser;
 		nextPage = ShowAll.class;
 	}
-	
-	
+
+	//@OnEvent(component="resetButton")
 	void onSelectedFromResetButton() { 
 		System.out.println("Resetting...");
 		userName = null;

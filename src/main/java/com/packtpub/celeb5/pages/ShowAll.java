@@ -12,7 +12,6 @@ import com.packtpub.celeb5.model.User;
 import com.packtpub.celeb5.util.Formats;
 
 public class ShowAll {
-	
 	@ApplicationState
     private User user;
     private boolean userExists;
@@ -26,7 +25,8 @@ public class ShowAll {
     private Celebrity celebrity;
     
     String onActivate() {
-        if (!userExists) return "Start";
+        if (!userExists) 
+        	return "Index";
         return null;
     }
     
@@ -52,6 +52,5 @@ public class ShowAll {
     public Format getDateFormat() {
         return Formats.getDateFormat();
     }
-   
 
 }

@@ -9,7 +9,6 @@ import com.packtpub.celeb5.util.Formats;
 import org.apache.tapestry5.annotations.ApplicationState;
 
 public class Details {
-
 	
 	@ApplicationState
 	private IDataSource dataSource;

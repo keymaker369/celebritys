@@ -120,5 +120,4 @@ public class AppModule {
 
 		configuration.add("Timing", filter);
 	}
-
 }

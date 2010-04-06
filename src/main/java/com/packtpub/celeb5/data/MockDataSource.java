@@ -8,7 +8,6 @@ import com.packtpub.celeb5.model.Occupation;
 import com.packtpub.celeb5.util.Formats;
 
 public class MockDataSource implements IDataSource {
-
 	private List<Celebrity> celebrities = new ArrayList<Celebrity>();
 
 	public MockDataSource() {
@@ -46,5 +45,5 @@ public class MockDataSource implements IDataSource {
 		c.setId(newId);
 		celebrities.add(c);
 	}
-
 }
+

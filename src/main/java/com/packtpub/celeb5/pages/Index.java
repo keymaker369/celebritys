@@ -5,7 +5,7 @@ import org.apache.tapestry5.annotations.ApplicationState;
 import com.packtpub.celeb5.model.User;
 import com.packtpub.celeb5.util.Security;
 
-public class Index {
+public class Index{
 	private String userName;
     private String password; 
     
@@ -42,5 +42,4 @@ public class Index {
     public void setPassword(String password) {
         this.password = password;
     }
-    
 }
