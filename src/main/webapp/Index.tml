@@ -40,5 +40,9 @@
             <a href="#" t:type="PageLink" t:page="Registration">
 					Or register</a>
         </p>
+        <p>
+            <a href="#" t:type="PageLink" t:page="Test">
+					test</a>
+        </p>
     </body>
 </html>

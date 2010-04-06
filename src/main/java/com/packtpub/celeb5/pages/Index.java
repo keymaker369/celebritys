@@ -11,8 +11,7 @@ public class Index {
     
     @ApplicationState
     private User user;
-	private boolean userExists;
-   
+    
     Object onSubmitFromLoginForm() {
         Class nextPage = null;
         User authenticatedUser = null;
@@ -44,14 +43,4 @@ public class Index {
         this.password = password;
     }
     
-	void onActivate(){
-		
-		if (userExists){
-			System.out.println("korisnik postoji!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-			return;
-		}else{
-			System.out.println("KOrisnik ne postoji!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		}
-	}
-
 }

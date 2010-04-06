@@ -5,9 +5,8 @@ import java.util.List;
 
 import org.apache.tapestry5.annotations.ApplicationState;
 import org.apache.tapestry5.annotations.InjectPage;
-import org.apache.tapestry5.annotations.OnEvent;
 
-import com.packtpub.celeb5.data.MockDataSource;
+import com.packtpub.celeb5.data.IDataSource;
 import com.packtpub.celeb5.model.Celebrity;
 import com.packtpub.celeb5.model.User;
 import com.packtpub.celeb5.util.Formats;
@@ -19,14 +18,15 @@ public class ShowAll {
     private boolean userExists;
     
     @ApplicationState
-    private MockDataSource dataSource;
+    private IDataSource dataSource;
     
     @InjectPage
-    private Details detailsPage;
+    private Details detailsPage; 
+    
     private Celebrity celebrity;
     
     String onActivate() {
-        if (!userExists) return "Index";
+        if (!userExists) return "Start";
         return null;
     }
     
@@ -52,5 +52,6 @@ public class ShowAll {
     public Format getDateFormat() {
         return Formats.getDateFormat();
     }
+   
 
 }

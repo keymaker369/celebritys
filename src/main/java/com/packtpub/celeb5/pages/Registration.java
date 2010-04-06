@@ -1,25 +1,91 @@
 package com.packtpub.celeb5.pages;
 
+import org.apache.tapestry5.SelectModel;
+import org.apache.tapestry5.annotations.ApplicationState;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Persist;
+import org.apache.tapestry5.ioc.Messages;
+import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.util.EnumSelectModel;
 
+import com.packtpub.celeb5.model.Country;
 import com.packtpub.celeb5.model.Gender;
+import com.packtpub.celeb5.model.User;
 
 public class Registration {
+
+	@SuppressWarnings("unused")
+	@ApplicationState
+	private User user;
 	
+	@Inject
+	private Messages messages;
+
 	@Persist
 	private String userName;
+
 	@Persist
 	private String password;
+
 	private String password2;
+
 	@Persist
-	private Gender gender;
+	private Gender gender;// = Gender.FEMALE;
+
 	@Persist
 	private boolean subscribe;
+
 	@Persist
 	private String email;
-	private boolean unsubscribe;
 	
+	@Persist
+	private Country country;
+
+	private boolean unsubscribe;
+
+	private Class nextPage;
+
+	Object onSubmitFromRegistrationForm() {
+		System.out.println("The form was submitted!");
+		if (unsubscribe)
+			subscribe = false;
+		return nextPage;
+	}
+
+	//@OnEvent(component="submitButton")
+	void onSelectedFromSubmitButton() {
+		System.out.println("Submit button was pressed!");
+		User newUser = new User("John", "Johnson");
+		this.user = newUser;
+		nextPage = ShowAll.class;
+	}
+	
+	
+	void onSelectedFromResetButton() { 
+		System.out.println("Resetting...");
+		userName = null;
+		password = null;
+		email = null;
+		gender = null;
+		subscribe = false;
+	}
+	
+	public SelectModel getCountries() {
+		return new EnumSelectModel(Country.class, messages);
+	}
+	
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public boolean isPasswordNotSubmitted() {
+		return userName == null;
+	}
+
 	public boolean isUnsubscribe() {
 		return unsubscribe;
 	}
@@ -45,66 +111,45 @@ public class Registration {
 		this.email = email;
 	}
 
+	public Gender getMale() {
+		return Gender.MALE;
+	}
+
+	public Gender getFemale() {
+		return Gender.FEMALE;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
-	
+
 	public void setUserName(String userName) {
 		System.out.println("Setting user name: " + userName);
 		this.userName = userName;
 	}
-	
+
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setPassword(String password) {
 		System.out.println("Setting password: " + password);
 		this.password = password;
 	}
-	
+
 	public String getPassword2() {
 		return password2;
 	}
-	
+
 	public void setPassword2(String password2) {
 		this.password2 = password2;
 	}
-	
+
 	public Gender getGender() {
 		return gender;
 	}
-	
+
 	public void setGender(Gender gender) {
-		System.out.println("Setting gender: "+ gender);
 		this.gender = gender;
 	}
-
-	public Gender getMale(){
-		return Gender.MALE;
-	}
-	
-	public Gender getFemale(){
-		return Gender.FEMALE;
-	}
-
-	void onSubmitFromRegistrationForm(){
-		System.out.println("The form was submitted!");
-		if (unsubscribe) 
-			subscribe = false;
-	}
-	
-	public boolean isPasswordNotSubmitted(){
-		return userName == null;	
-	}
-
-	@OnEvent(component="submitButton")
-	void onSubmitButton()
-	{
-	  System.out.println("Submit button was pressed!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!");
-	  // TODO: Some code to actually register the user
-	}
-
-
-	
 }

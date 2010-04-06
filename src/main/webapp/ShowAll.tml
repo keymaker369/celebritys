@@ -22,7 +22,7 @@
             </tr>
         </table>
 		  <br/>
-        <a href="#" t:type="PageLink" t:page="Index">
+        <a href="#" t:type="PageLink" t:page="Start">
 				Back to the Start Page</a>
     </body>
 </html>
